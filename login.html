@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | StudentMart</title>
+  <meta name="description" content="Login or create a StudentMart account." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ============== MINIMAL NAVBAR ============== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__container container" style="justify-content: space-between;">
+      <a href="index.html" class="navbar__logo" aria-label="StudentMart Home">
+        <span class="navbar__logo-mark">SM</span>
+        <span class="navbar__logo-text">Student<strong>Mart</strong></span>
+      </a>
+      <a href="index.html" class="btn btn--ghost btn--sm">← Back to Home</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section auth-section">
+      <div class="container auth-container">
+
+        <div class="auth-card surface-card">
+
+          <!-- Tabs: Login / Signup -->
+          <div class="auth-tabs" role="tablist">
+            <button class="auth-tab is-active" data-form="login" type="button" role="tab" aria-selected="true">Login</button>
+            <button class="auth-tab" data-form="signup" type="button" role="tab" aria-selected="false">Sign Up</button>
+          </div>
+
+          <!-- ============== LOGIN FORM ============== -->
+          <form id="loginForm" class="auth-form is-active" novalidate>
+            <h1 class="auth-title">Welcome back 👋</h1>
+            <p class="auth-subtitle">Login to continue shopping on StudentMart.</p>
+
+            <div class="form-group" id="loginEmailGroup">
+              <label class="form-label" for="loginEmail">Email Address</label>
+              <input type="email" id="loginEmail" class="form-input" placeholder="you@college.edu" autocomplete="email" />
+              <span class="form-error">Please enter a valid email address.</span>
+            </div>
+
+            <div class="form-group" id="loginPasswordGroup">
+              <label class="form-label" for="loginPassword">Password</label>
+              <div class="password-field">
+                <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" autocomplete="current-password" />
+                <button type="button" class="password-toggle" data-target="loginPassword" aria-label="Show password">👁️</button>
+              </div>
+              <span class="form-error">Password must be at least 6 characters.</span>
+            </div>
+
+            <div class="auth-form__row">
+              <label class="checkbox-label">
+                <input type="checkbox" id="rememberMe" /> Remember me
+              </label>
+              <a href="#" class="auth-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full btn--lg">Login</button>
+
+            <p class="auth-switch">Don't have an account? <button type="button" class="auth-link" data-form="signup">Sign up</button></p>
+          </form>
+
+          <!-- ============== SIGNUP FORM ============== -->
+          <form id="signupForm" class="auth-form" novalidate>
+            <h1 class="auth-title">Create your account 🎓</h1>
+            <p class="auth-subtitle">Join StudentMart and unlock student-only deals.</p>
+
+            <div class="form-group" id="signupNameGroup">
+              <label class="form-label" for="signupName">Full Name</label>
+              <input type="text" id="signupName" class="form-input" placeholder="Your full name" autocomplete="name" />
+              <span class="form-error">Please enter your full name.</span>
+            </div>
+
+            <div class="form-group" id="signupEmailGroup">
+              <label class="form-label" for="signupEmail">Email Address</label>
+              <input type="email" id="signupEmail" class="form-input" placeholder="you@college.edu" autocomplete="email" />
+              <span class="form-error">Please enter a valid email address.</span>
+            </div>
+
+            <div class="form-group" id="signupPasswordGroup">
+              <label class="form-label" for="signupPassword">Password</label>
+              <div class="password-field">
+                <input type="password" id="signupPassword" class="form-input" placeholder="Create a password" autocomplete="new-password" />
+                <button type="button" class="password-toggle" data-target="signupPassword" aria-label="Show password">👁️</button>
+              </div>
+              <span class="form-error">Password must be at least 6 characters.</span>
+            </div>
+
+            <div class="form-group" id="signupConfirmGroup">
+              <label class="form-label" for="signupConfirm">Confirm Password</label>
+              <div class="password-field">
+                <input type="password" id="signupConfirm" class="form-input" placeholder="Re-enter your password" autocomplete="new-password" />
+                <button type="button" class="password-toggle" data-target="signupConfirm" aria-label="Show password">👁️</button>
+              </div>
+              <span class="form-error">Passwords do not match.</span>
+            </div>
+
+            <label class="checkbox-label" style="margin-bottom: var(--space-3);">
+              <input type="checkbox" id="agreeTerms" /> I agree to the Terms & Privacy Policy
+            </label>
+
+            <button type="submit" class="btn btn--primary btn--full btn--lg">Create Account</button>
+
+            <p class="auth-switch">Already have an account? <button type="button" class="auth-link" data-form="login">Login</button></p>
+          </form>
+
+        </div>
+
+        <!-- Side illustration / value props -->
+        <div class="auth-side">
+          <h2 class="auth-side__title">Student prices.<br/>Real savings.</h2>
+          <ul class="auth-side__list">
+            <li>🎓 Verified student discounts on every order</li>
+            <li>🚚 Fast delivery across campuses</li>
+            <li>↩️ 7-day hassle-free returns</li>
+            <li>🔒 Your data stays secure, always</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+
+  <!-- ============== PAGE-SPECIFIC SCRIPT: AUTH VALIDATION ============== -->
+  <script>
+    /**
+     * login.html page logic — handles tab switching between Login/Signup,
+     * show/hide password toggles, client-side validation, and a demo
+     * "auth" flow that stores the user object in localStorage (no real
+     * backend — StudentMart has no server, so this simulates a session).
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      const USER_KEY = 'sm_user';
+
+      /* ---------- TAB SWITCHING (Login <-> Signup) ---------- */
+      const tabs = document.querySelectorAll('.auth-tab');
+      const forms = document.querySelectorAll('.auth-form');
+
+      function switchTo(formName) {
+        tabs.forEach(t => {
+          const active = t.dataset.form === formName;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', String(active));
+        });
+        forms.forEach(f => f.classList.toggle('is-active', f.id === `${formName}Form`));
+      }
+
+      tabs.forEach(tab => tab.addEventListener('click', () => switchTo(tab.dataset.form)));
+
+      // "Sign up" / "Login" links inside each form also switch tabs
+      document.querySelectorAll('.auth-link[data-form]').forEach(link => {
+        link.addEventListener('click', () => switchTo(link.dataset.form));
+      });
+
+      /* ---------- SHOW / HIDE PASSWORD TOGGLE ---------- */
+      document.querySelectorAll('.password-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const input = document.getElementById(btn.dataset.target);
+          const isHidden = input.type === 'password';
+          input.type = isHidden ? 'text' : 'password';
+          btn.textContent = isHidden ? '🙈' : '👁️';
+          btn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+        });
+      });
+
+      /* ---------- VALIDATION HELPERS ---------- */
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+
+      function setFieldError(groupId, hasError) {
+        document.getElementById(groupId).classList.toggle('has-error', hasError);
+      }
+
+      /* ---------- LOGIN FORM SUBMIT ---------- */
+      document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+
+        const emailValid = isValidEmail(email);
+        const passwordValid = password.length >= 6;
+
+        setFieldError('loginEmailGroup', !emailValid);
+        setFieldError('loginPasswordGroup', !passwordValid);
+
+        if (!emailValid || !passwordValid) {
+          showToast('Please fix the errors below', 'error');
+          return;
+        }
+
+        // No backend — simulate successful login by storing a user record
+        const existingUser = storageGet(USER_KEY, null);
+        storageSet(USER_KEY, {
+          name: existingUser?.name || email.split('@')[0],
+          email: email,
+          college: existingUser?.college || ''
+        });
+
+        showToast('Login successful! Redirecting…', 'success');
+        setTimeout(() => window.location.href = 'profile.html', 800);
+      });
+
+      /* ---------- SIGNUP FORM SUBMIT ---------- */
+      document.getElementById('signupForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('signupName').value.trim();
+        const email = document.getElementById('signupEmail').value.trim();
+        const password = document.getElementById('signupPassword').value;
+        const confirm = document.getElementById('signupConfirm').value;
+        const agreed = document.getElementById('agreeTerms').checked;
+
+        const nameValid = name.length >= 2;
+        const emailValid = isValidEmail(email);
+        const passwordValid = password.length >= 6;
+        const confirmValid = password === confirm && confirm.length > 0;
+
+        setFieldError('signupNameGroup', !nameValid);
+        setFieldError('signupEmailGroup', !emailValid);
+        setFieldError('signupPasswordGroup', !passwordValid);
+        setFieldError('signupConfirmGroup', !confirmValid);
+
+        if (!nameValid || !emailValid || !passwordValid || !confirmValid) {
+          showToast('Please fix the errors below', 'error');
+          return;
+        }
+
+        if (!agreed) {
+          showToast('Please agree to the Terms & Privacy Policy', 'error');
+          return;
+        }
+
+        storageSet(USER_KEY, { name, email, college: '' });
+
+        showToast('Account created successfully! 🎉', 'success');
+        setTimeout(() => window.location.href = 'profile.html', 800);
+      });
+
+      /* ---------- CLEAR ERROR STATE ON INPUT ---------- */
+      document.querySelectorAll('.form-input').forEach(input => {
+        input.addEventListener('input', () => {
+          input.closest('.form-group')?.classList.remove('has-error');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

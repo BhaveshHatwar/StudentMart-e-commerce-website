@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart | StudentMart</title>
+  <meta name="description" content="Review your cart, apply coupons, and check out on StudentMart." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ============== NAVBAR ============== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__container container">
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="navbar__logo" aria-label="StudentMart Home">
+        <span class="navbar__logo-mark">SM</span>
+        <span class="navbar__logo-text">Student<strong>Mart</strong></span>
+      </a>
+
+      <div class="navbar__categories" id="categoriesDropdown">
+        <button class="navbar__categories-btn" id="categoriesBtn" aria-haspopup="true" aria-expanded="false">
+          <span>Categories</span>
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="navbar__categories-menu" id="categoriesMenu" role="menu">
+          <li role="none"><a role="menuitem" href="products.html?category=books">📚 Books</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=laptop">💻 Laptop Accessories</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=headphones">🎧 Headphones</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=lamps">💡 Study Lamps</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=stationery">✏️ Stationery</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=essentials">🎓 College Essentials</a></li>
+        </ul>
+      </div>
+
+      <div class="navbar__search" id="navbarSearch">
+        <input type="search" id="searchInput" class="navbar__search-input" placeholder="Search for books, headphones, lamps & more" aria-label="Search products" autocomplete="off" />
+        <button class="navbar__search-btn" id="searchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="navbar__search-suggestions" id="searchSuggestions" role="listbox"></ul>
+      </div>
+
+      <nav class="navbar__links" id="mobileMenu" aria-label="Primary">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="products.html" class="navbar__link">Products</a>
+        <div class="navbar__icons">
+          <a href="cart.html" class="navbar__icon-link is-active" aria-label="View cart">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3H5L5.4 5M5.4 5H21L19 13H7M5.4 5L7 13M7 13L4.7 15.3C4.1 15.9 4.5 17 5.4 17H19M9 21C9.6 21 10 20.6 10 20C10 19.4 9.6 19 9 19C8.4 19 8 19.4 8 20C8 20.6 8.4 21 9 21ZM20 21C20.6 21 21 20.6 21 20C21 19.4 20.6 19 20 19C19.4 19 19 19.4 19 20C19 20.6 19.4 21 20 21Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="navbar__badge" id="cartBadge">0</span>
+          </a>
+          <a href="profile.html" class="navbar__icon-link" aria-label="View profile">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </a>
+          <a href="login.html" class="btn btn--primary btn--sm navbar__login-btn">Login</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container">
+
+        <div class="section__header" style="text-align:left; margin-bottom: var(--space-3);">
+          <h1 class="section__title">Your Cart</h1>
+          <p class="section__subtitle">Review your items before checkout</p>
+        </div>
+
+        <div class="cart-layout">
+
+          <!-- Cart Items Column -->
+          <div class="cart-layout__items">
+
+            <div class="cart-list-header surface-card">
+              <span>Product</span>
+              <span></span>
+              <span>Quantity</span>
+              <span>Subtotal</span>
+              <span></span>
+            </div>
+
+            <div id="cartItemsList" class="cart-items-list"><!-- injected by cart.js --></div>
+
+            <!-- Empty cart state -->
+            <div class="empty-state surface-card" id="cartEmptyState" style="display:none;">
+              <div class="empty-state__icon">🛒</div>
+              <h3 class="empty-state__title">Your cart is empty</h3>
+              <p class="empty-state__text">Looks like you haven't added anything yet. Let's fix that.</p>
+              <a href="products.html" class="btn btn--primary">Start Shopping</a>
+            </div>
+
+            <button class="btn btn--ghost" id="clearCartBtn" type="button">Clear Cart</button>
+          </div>
+
+          <!-- Order Summary Column -->
+          <aside class="cart-layout__summary surface-card" id="cartSummary">
+            <h2 class="cart-summary__title">Order Summary</h2>
+
+            <!-- Coupon Form -->
+            <form id="couponForm" class="coupon-form">
+              <label for="couponInput" class="form-label">Have a coupon code?</label>
+              <div class="coupon-form__row">
+                <input type="text" id="couponInput" class="form-input" placeholder="e.g. STUDENT10" autocomplete="off" />
+                <button type="submit" class="btn btn--primary btn--sm">Apply</button>
+              </div>
+              <p class="coupon-form__hint">Try: STUDENT10, WELCOME15, or CAMPUS20</p>
+              <p class="coupon-form__active" id="activeCouponLabel"></p>
+              <button type="button" id="removeCouponBtn" class="coupon-form__remove">Remove coupon</button>
+            </form>
+
+            <hr class="summary-divider" />
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="cartSubtotal">₹0</span>
+            </div>
+            <div class="summary-row summary-row--discount">
+              <span>Coupon Discount</span>
+              <span id="cartDiscount">₹0</span>
+            </div>
+            <div class="summary-row">
+              <span>Delivery</span>
+              <span id="cartDelivery">FREE</span>
+            </div>
+            <hr class="summary-divider" />
+            <div class="summary-row summary-row--total">
+              <span>Total</span>
+              <span id="cartTotal">₹0</span>
+            </div>
+
+            <button class="btn btn--primary btn--full btn--lg" id="checkoutBtn" type="button" style="margin-top: var(--space-3);">
+              Proceed to Checkout
+            </button>
+            <p class="summary-note">Free delivery on orders above ₹999. This is a demo checkout — no real payment is processed.</p>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col footer__brand">
+        <a href="index.html" class="navbar__logo footer__logo">
+          <span class="navbar__logo-mark">SM</span>
+          <span class="navbar__logo-text">Student<strong>Mart</strong></span>
+        </a>
+        <p>The campus store for every Indian student — books, tech and everything in between.</p>
+        <div class="footer__socials">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Student Program</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Shipping Info</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li>📧 support@studentmart.in</li>
+          <li>📞 +91 98765 43210</li>
+          <li>📍 Nagpur, Maharashtra, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© <span id="currentYear"></span> StudentMart. All rights reserved. Built for students, by design.</p>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <div class="modal-overlay" id="quickViewOverlay">
+    <div class="modal quick-view" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="quickViewTitle">
+      <button class="modal__close" id="quickViewClose" aria-label="Close quick view">&times;</button>
+      <div class="quick-view__content" id="quickViewContent"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

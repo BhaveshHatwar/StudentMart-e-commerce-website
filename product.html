@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Product Details | StudentMart</title>
+  <meta name="description" content="View product details, reviews and similar products on StudentMart." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ============== NAVBAR ============== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__container container">
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="navbar__logo" aria-label="StudentMart Home">
+        <span class="navbar__logo-mark">SM</span>
+        <span class="navbar__logo-text">Student<strong>Mart</strong></span>
+      </a>
+
+      <div class="navbar__categories" id="categoriesDropdown">
+        <button class="navbar__categories-btn" id="categoriesBtn" aria-haspopup="true" aria-expanded="false">
+          <span>Categories</span>
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="navbar__categories-menu" id="categoriesMenu" role="menu">
+          <li role="none"><a role="menuitem" href="products.html?category=books">📚 Books</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=laptop">💻 Laptop Accessories</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=headphones">🎧 Headphones</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=lamps">💡 Study Lamps</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=stationery">✏️ Stationery</a></li>
+          <li role="none"><a role="menuitem" href="products.html?category=essentials">🎓 College Essentials</a></li>
+        </ul>
+      </div>
+
+      <div class="navbar__search" id="navbarSearch">
+        <input type="search" id="searchInput" class="navbar__search-input" placeholder="Search for books, headphones, lamps & more" aria-label="Search products" autocomplete="off" />
+        <button class="navbar__search-btn" id="searchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="navbar__search-suggestions" id="searchSuggestions" role="listbox"></ul>
+      </div>
+
+      <nav class="navbar__links" id="mobileMenu" aria-label="Primary">
+        <a href="index.html" class="navbar__link">Home</a>
+        <a href="products.html" class="navbar__link">Products</a>
+        <div class="navbar__icons">
+          <a href="cart.html" class="navbar__icon-link" aria-label="View cart">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3H5L5.4 5M5.4 5H21L19 13H7M5.4 5L7 13M7 13L4.7 15.3C4.1 15.9 4.5 17 5.4 17H19M9 21C9.6 21 10 20.6 10 20C10 19.4 9.6 19 9 19C8.4 19 8 19.4 8 20C8 20.6 8.4 21 9 21ZM20 21C20.6 21 21 20.6 21 20C21 19.4 20.6 19 20 19C19.4 19 19 19.4 19 20C19 20.6 19.4 21 20 21Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="navbar__badge" id="cartBadge">0</span>
+          </a>
+          <a href="profile.html" class="navbar__icon-link" aria-label="View profile">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 20C4 16.6863 7.58172 14 12 14C16.4183 14 20 16.6863 20 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </a>
+          <a href="login.html" class="btn btn--primary btn--sm navbar__login-btn">Login</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============== BREADCRUMB ============== -->
+    <section class="container" style="padding-top: var(--space-3);">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="index.html">Home</a> <span aria-hidden="true">/</span>
+        <a href="products.html">Products</a> <span aria-hidden="true">/</span>
+        <span id="breadcrumbCategory">Category</span> <span aria-hidden="true">/</span>
+        <span id="breadcrumbProduct" aria-current="page">Product</span>
+      </nav>
+    </section>
+
+    <!-- ============== PRODUCT DETAIL ============== -->
+    <section class="section" id="productDetailSection">
+      <div class="container product-detail">
+
+        <!-- Image Gallery -->
+        <div class="product-detail__gallery">
+          <div class="product-detail__main-image" id="mainImage">📦</div>
+          <div class="product-detail__thumbs" id="thumbsRow"><!-- injected by JS --></div>
+        </div>
+
+        <!-- Info -->
+        <div class="product-detail__info">
+          <span class="product-detail__category" id="detailCategory">Category</span>
+          <h1 class="product-detail__title" id="detailName">Product Name</h1>
+
+          <div class="product-detail__rating">
+            <span class="product-card__rating-badge" id="detailRatingBadge">4.5 ★</span>
+            <span class="product-card__rating-count" id="detailRatingCount">(0 ratings)</span>
+          </div>
+
+          <div class="product-detail__price">
+            <span class="product-detail__price-current" id="detailPrice">₹0</span>
+            <span class="product-detail__price-original" id="detailOriginalPrice">₹0</span>
+            <span class="tag tag--success" id="detailDiscountTag">0% OFF</span>
+          </div>
+
+          <p class="product-detail__desc" id="detailDescription">Loading description…</p>
+
+          <ul class="product-detail__highlights">
+            <li>✔ Free delivery on orders above ₹999</li>
+            <li>✔ 7-day easy return policy</li>
+            <li>✔ Extra 10% off with verified student ID</li>
+          </ul>
+
+          <!-- Quantity Selector -->
+          <div class="product-detail__qty-row">
+            <label for="detailQty" class="form-label">Quantity</label>
+            <div class="qty-selector">
+              <button type="button" class="qty-btn" id="qtyDecrease" aria-label="Decrease quantity">−</button>
+              <input type="number" id="detailQty" value="1" min="1" max="10" class="qty-input" aria-label="Quantity">
+              <button type="button" class="qty-btn" id="qtyIncrease" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="product-detail__actions">
+            <button class="btn btn--primary btn--lg" id="detailAddToCart">Add to Cart</button>
+            <button class="btn btn--accent btn--lg" id="detailBuyNow">Buy Now</button>
+            <button class="product-card__wishlist" id="detailWishlist" aria-label="Add to wishlist">🤍</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== REVIEWS ============== -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section__header" style="text-align:left;">
+          <h2 class="section__title">Customer Reviews</h2>
+          <p class="section__subtitle">What other students are saying</p>
+        </div>
+        <div class="reviews-list" id="reviewsList"><!-- injected by JS --></div>
+      </div>
+    </section>
+
+    <!-- ============== SIMILAR PRODUCTS ============== -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="section__header" style="text-align:left;">
+          <h2 class="section__title">Similar Products</h2>
+          <p class="section__subtitle">More from the same category</p>
+        </div>
+        <div class="product-grid" id="similarProductsGrid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col footer__brand">
+        <a href="index.html" class="navbar__logo footer__logo">
+          <span class="navbar__logo-mark">SM</span>
+          <span class="navbar__logo-text">Student<strong>Mart</strong></span>
+        </a>
+        <p>The campus store for every Indian student — books, tech and everything in between.</p>
+        <div class="footer__socials">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Student Program</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Shipping Info</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li>📧 support@studentmart.in</li>
+          <li>📞 +91 98765 43210</li>
+          <li>📍 Nagpur, Maharashtra, India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <p>© <span id="currentYear"></span> StudentMart. All rights reserved. Built for students, by design.</p>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <div class="modal-overlay" id="quickViewOverlay">
+    <div class="modal quick-view" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="quickViewTitle">
+      <button class="modal__close" id="quickViewClose" aria-label="Close quick view">&times;</button>
+      <div class="quick-view__content" id="quickViewContent"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+
+  <!-- ============== PAGE-SPECIFIC SCRIPT: PRODUCT DETAIL RENDERING ============== -->
+  <script>
+    /**
+     * product.html page logic. Reads the product id from ?id= in the URL,
+     * looks it up in PRODUCTS (products.js), and renders all detail sections.
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      const productId = getQueryParam('id');
+      const product = PRODUCTS.find(p => p.id === productId) || PRODUCTS[0];
+
+      // Demo review dataset — generated per-product from rating/ratingCount
+      // (no backend, so reviews are illustrative placeholder content).
+      const DEMO_REVIEWS = [
+        { name: 'Aarav S.', stars: 5, text: 'Exactly as described and arrived faster than expected. Great value for the price.' },
+        { name: 'Priya M.', stars: 4, text: 'Good quality overall. Packaging could be a little sturdier, but the product itself is solid.' },
+        { name: 'Rohan K.', stars: 5, text: 'Been using it for a month now — holding up well. Would recommend to fellow students.' }
+      ];
+
+      function renderProductDetail() {
+        document.getElementById('pageTitle').textContent = `${product.name} | StudentMart`;
+        document.getElementById('breadcrumbCategory').textContent = product.categoryLabel;
+        document.getElementById('breadcrumbProduct').textContent = product.name;
+
+        document.getElementById('mainImage').textContent = product.icon;
+        document.getElementById('thumbsRow').innerHTML = Array(4).fill(product.icon)
+          .map((icon, i) => `<button class="thumb-btn ${i === 0 ? 'is-active' : ''}" data-icon="${icon}" aria-label="View image ${i + 1}">${icon}</button>`)
+          .join('');
+
+        document.getElementById('detailCategory').textContent = product.categoryLabel;
+        document.getElementById('detailName').textContent = product.name;
+        document.getElementById('detailRatingBadge').textContent = `${product.rating} ★`;
+        document.getElementById('detailRatingCount').textContent = `(${product.ratingCount} ratings)`;
+        document.getElementById('detailPrice').textContent = formatPrice(product.price);
+        document.getElementById('detailOriginalPrice').textContent = formatPrice(product.originalPrice);
+        document.getElementById('detailDiscountTag').textContent = `${getDiscountPercent(product)}% OFF`;
+        document.getElementById('detailDescription').textContent = product.description;
+
+        const wishlistBtn = document.getElementById('detailWishlist');
+        const wishlisted = isInWishlist(product.id);
+        wishlistBtn.textContent = wishlisted ? '❤️' : '🤍';
+        wishlistBtn.classList.toggle('is-active', wishlisted);
+
+        // Reviews
+        document.getElementById('reviewsList').innerHTML = DEMO_REVIEWS.map(r => `
+          <div class="review-card surface-card">
+            <div class="review-card__header">
+              <span class="review-card__avatar">${r.name.charAt(0)}</span>
+              <div>
+                <strong>${r.name}</strong>
+                <div class="review-card__stars">${renderStars(r.stars)}</div>
+              </div>
+            </div>
+            <p class="review-card__text">${r.text}</p>
+          </div>
+        `).join('');
+
+        // Similar products: same category, excluding current product
+        const similar = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+        renderProductGrid('similarProductsGrid', similar.length ? similar : PRODUCTS.filter(p => p.id !== product.id).slice(0, 4));
+      }
+
+      // Thumbnail click (just swaps the displayed icon — illustrative gallery)
+      document.getElementById('thumbsRow').addEventListener('click', (e) => {
+        const btn = e.target.closest('.thumb-btn');
+        if (!btn) return;
+        document.getElementById('mainImage').textContent = btn.dataset.icon;
+        document.querySelectorAll('.thumb-btn').forEach(t => t.classList.remove('is-active'));
+        btn.classList.add('is-active');
+      });
+
+      // Quantity controls
+      const qtyInput = document.getElementById('detailQty');
+      document.getElementById('qtyIncrease').addEventListener('click', () => {
+        qtyInput.value = Math.min(10, parseInt(qtyInput.value || 1) + 1);
+      });
+      document.getElementById('qtyDecrease').addEventListener('click', () => {
+        qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1) - 1);
+      });
+
+      // Add to cart / Buy now
+      document.getElementById('detailAddToCart').addEventListener('click', () => {
+        addToCart(product.id, parseInt(qtyInput.value || 1));
+        showToast(`${product.name} added to cart`, 'success');
+      });
+
+      document.getElementById('detailBuyNow').addEventListener('click', () => {
+        addToCart(product.id, parseInt(qtyInput.value || 1));
+        window.location.href = 'cart.html';
+      });
+
+      // Wishlist toggle
+      document.getElementById('detailWishlist').addEventListener('click', (e) => {
+        const nowWishlisted = toggleWishlist(product.id);
+        e.target.textContent = nowWishlisted ? '❤️' : '🤍';
+        e.target.classList.toggle('is-active', nowWishlisted);
+        showToast(nowWishlisted ? 'Added to wishlist' : 'Removed from wishlist', 'info');
+      });
+
+      renderProductDetail();
+    });
+  </script>
+</body>
+</html>
